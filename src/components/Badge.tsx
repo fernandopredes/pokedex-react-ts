@@ -1,4 +1,3 @@
-/* import './Badge.css' */
 import { Container} from './Badge.style'
 
 type BadgeProps = {

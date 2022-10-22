@@ -1,4 +1,3 @@
-/* import "./Card.css"; */
 import { Link } from "react-router-dom";
 import Badge from "./Badge";
 import { Cards, Image, Title, Number } from './Card.style'
