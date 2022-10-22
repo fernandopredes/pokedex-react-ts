@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+// import "./NavBar.css"
 import { Nav, BtnGoBack } from './NavBar.style'
 import rotomdex from '../assets/rotom.png'
 
