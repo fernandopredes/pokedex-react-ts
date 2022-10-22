@@ -55,7 +55,7 @@ function Details() {
               <Data>Peso
                 <div>
                   <DataInside>
-                   {Math.round(pokemonData.weight/100)}Kg
+                   {pokemonData.weight/100}Kg
                   </DataInside>
                 </div>
               </Data>
