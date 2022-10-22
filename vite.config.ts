@@ -1,11 +1,10 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { ghPages } from "vite-plugin-gh-pages";
-
+/* import react from '@vitejs/plugin-react' */
 
 // https://vitejs.dev/config/
-
-export default {
-  base: "/pokedex-react-ts/",
-  plugins: [ghPages()],
-};
+export default defineConfig({
+  /* 中略 */
+  base: process.env.GITHUB_PAGES
+    ? '/pokedex-react-ts/' // レポジトリ名を設定
+    : './'
+});
