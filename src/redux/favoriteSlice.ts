@@ -27,3 +27,4 @@ export const favorite = createSlice({
 export const { add, remove } = favorite.actions
 
 export default favorite.reducer
+
