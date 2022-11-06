@@ -13,7 +13,7 @@ function Home() {
 
 
   async function getPokemon() {
-    const { data } = await  api.get('/pokemon?limit=898')
+    const { data } = await  api.get('/pokemon?limit=421')
 
 
     const dadosCompletos = await Promise.all(
@@ -55,7 +55,7 @@ function Home() {
 
       {pokemonList
         .filter((pokemon) => pokemon.name.includes(textoBusca.toLowerCase()) || String(pokemon.id) === textoBusca)
-        .map((pokemon) => (<Card weight={pokemon.weight} height={pokemon.height} id={pokemon.id} key={pokemon.id} name={pokemon.name} types={pokemon.types}/>))}
+        .map((pokemon) => (<Card id={pokemon.id} key={pokemon.id} name={pokemon.name} types={pokemon.types}/>))}
 
 
       </List>
