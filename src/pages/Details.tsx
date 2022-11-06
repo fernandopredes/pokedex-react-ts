@@ -7,8 +7,8 @@ import NavBar from "../components/NavBar";
 import api from "../services/api";
 import Badge from "../components/Badge";
 import { Container, Image, Card, Number, Title, Pattern, DataInside, Data, Button } from "./Details.style"
-import { CardProps } from "../components/Card";
 import bolinhas from '../assets/bolinhas.png'
+
 
 type PokemonTypeProps = {
   type: {
