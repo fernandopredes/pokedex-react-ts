@@ -82,9 +82,13 @@ function Details() {
               </Data>
             </div>
 
+            {!!listaPokemonsFavoritos.find(
+              pokemonId => String(pokemonId) === String(id)) ?
+              (<button onClick={handleClickRemove}>Remover dos favoritos</button>)
+               :
+               (<button onClick={handleClickAdd}>Adicionar aos favoritos</button>)
+            }
 
-            <button onClick={handleClickAdd}>Adicionar aos favoritos</button>
-            <button onClick={handleClickRemove}>Remover dos favoritos</button>
           </Card>
         </div>
         </Container>
