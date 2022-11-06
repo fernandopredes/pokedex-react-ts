@@ -59,8 +59,6 @@ const Favorites = () => {
       <MainTitle text="Seus pokémons favoritos:"/>
 
       <List>
-
-      
           {pokemonList.map((pokemon, index)=>{
             return  (<Card key={index} id={pokemon.id}  name={pokemon.name} types={pokemon.types}/>)
 

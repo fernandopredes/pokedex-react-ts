@@ -13,7 +13,7 @@ function Home() {
 
 
   async function getPokemon() {
-    const { data } = await  api.get('/pokemon?limit=421')
+    const { data } = await  api.get('/pokemon?limit=251')
 
 
     const dadosCompletos = await Promise.all(
