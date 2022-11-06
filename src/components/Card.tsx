@@ -14,8 +14,7 @@ export type CardProps = {
   id: number
   name: string
   types: Array<PokemonTypeProps>
-  weight: number
-  height: number
+ 
 }
 
 const Card = (props: CardProps) => {

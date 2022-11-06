@@ -10,10 +10,25 @@ import { Container, Image, Card, Number, Title, Pattern, DataInside, Data, Butto
 import { CardProps } from "../components/Card";
 import bolinhas from '../assets/bolinhas.png'
 
-function Details() {
+type PokemonTypeProps = {
+  type: {
+    name: string
+  }
+}
+
+type DetailsProps = {
+
+  id: number
+  name: string
+  types: Array<PokemonTypeProps>
+  weight: number
+  height: number
+}
+
+function Details(props: DetailsProps) {
   const { id } = useParams();
   const dispatch = useDispatch()
-  const [pokemonData, setPokemonData] = useState<CardProps>({} as CardProps);
+  const [pokemonData, setPokemonData] = useState<DetailsProps>({} as DetailsProps);
   const [isLoading, setIsLoading] = useState(true)
   const listaPokemonsFavoritos = useSelector((state: StoreState) => state.favorite)
 
