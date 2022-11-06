@@ -11,7 +11,7 @@ export const Nav = styled.nav`
   font-size: 24px;
   line-height: 31px;
   color: #17171B;
-  }
+}
 `
 export const BtnGoBack = styled(Link)`
  font-weight: 400;
@@ -22,4 +22,11 @@ export const BtnGoBack = styled(Link)`
   img{
     max-width: 10%;
   }
-`
+  `
+  export const TotalPok = styled.span`
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-right: 2rem;
+
+  `
