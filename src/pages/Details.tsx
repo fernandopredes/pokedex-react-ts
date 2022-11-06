@@ -1,5 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { add, remove } from "../redux/favoriteSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { StoreState } from "../redux";
 import NavBar from "../components/NavBar";
 import api from "../services/api";
 import Badge from "../components/Badge";
@@ -9,9 +12,19 @@ import bolinhas from '../assets/bolinhas.png'
 
 function Details() {
   const { id } = useParams();
+  const dispatch = useDispatch()
   const [pokemonData, setPokemonData] = useState<CardProps>({} as CardProps);
   const [isLoading, setIsLoading] = useState(true)
+  const listaPokemonsFavoritos = useSelector((state: StoreState) => state.favorite)
 
+
+  function handleClickAdd() {
+    dispatch(add(id))
+  }
+
+  function handleClickRemove() {
+    dispatch(remove(id))
+  }
 
   async function getPokemon() {
     const { data } = await  api.get('/pokemon/'+ id)
@@ -69,6 +82,9 @@ function Details() {
               </Data>
             </div>
 
+
+            <button onClick={handleClickAdd}>Adicionar aos favoritos</button>
+            <button onClick={handleClickRemove}>Remover dos favoritos</button>
           </Card>
         </div>
         </Container>
