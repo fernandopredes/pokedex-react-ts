@@ -139,3 +139,7 @@ line-height: 47px;
 color: #FFFFFF;
 
 `
+
+export const Button = styled.button`
+padding: 0.5em 1rem;
+`

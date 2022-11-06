@@ -6,7 +6,7 @@ import { StoreState } from "../redux";
 import NavBar from "../components/NavBar";
 import api from "../services/api";
 import Badge from "../components/Badge";
-import { Container, Image, Card, Number, Title, Pattern, DataInside, Data } from "./Details.style"
+import { Container, Image, Card, Number, Title, Pattern, DataInside, Data, Button } from "./Details.style"
 import { CardProps } from "../components/Card";
 import bolinhas from '../assets/bolinhas.png'
 
@@ -84,9 +84,9 @@ function Details() {
 
             {!!listaPokemonsFavoritos.find(
               pokemonId => String(pokemonId) === String(id)) ?
-              (<button onClick={handleClickRemove}>Remover dos favoritos</button>)
+              (<Button onClick={handleClickRemove}>Remover dos favoritos</Button>)
                :
-               (<button onClick={handleClickAdd}>Adicionar aos favoritos</button>)
+               (<Button onClick={handleClickAdd}>Adicionar aos favoritos</Button>)
             }
 
           </Card>

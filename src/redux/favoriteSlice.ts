@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const estadoInicial: number[]  = []
+let estadoInicial: number[]  = []
+
+const favoriteStorage = localStorage.getItem('@pokedex/favorite')
+if (favoriteStorage) {
+  estadoInicial = JSON.parse(favoriteStorage)
+}
 
 export const favorite = createSlice({
   name: "favorite",
@@ -8,11 +13,13 @@ export const favorite = createSlice({
   reducers:{
     add: (state, action) => {
       state.push(action.payload)
+      localStorage.setItem('@pokedex/favorite', JSON.stringify(state))
     },
     remove: (state, action) => {
       const index = state.findIndex((item :number) => Number(item) === Number(action.payload))
 
       state.splice(index, 1)
+      localStorage.setItem('@pokedex/favorite', JSON.stringify(state))
     }
   }
 })
