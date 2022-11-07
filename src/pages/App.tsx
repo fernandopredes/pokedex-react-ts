@@ -29,7 +29,10 @@ input{
   background-color: ${(props) => props.theme.inputbg};
   color: ${(props) => props.theme.inputcol};
   border: 2px solid ${(props) => props.theme.inputborder};
+
 }
+textarea:focus, input:focus{
+    outline: none;
 `
 
 const darkTheme = {
