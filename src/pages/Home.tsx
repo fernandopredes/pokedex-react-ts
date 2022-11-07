@@ -13,7 +13,7 @@ function Home() {
 
 
   async function getPokemon() {
-    const { data } = await  api.get('/pokemon?limit=251')
+    const { data } = await  api.get('/pokemon?limit=905')
 
 
     const dadosCompletos = await Promise.all(
@@ -51,14 +51,17 @@ function Home() {
       <Title>Encontre todos os pokémons em um só lugar</Title>
 
       <Input type="text" placeholder="Procure por um pokémon ou dex number." value={textoBusca} onChange={(event)=>{setTextoBusca(event.target.value)}}/>
-      <List className="list">
 
-      {pokemonList
+      {textoBusca === "" ?<p>teste</p> : <List className="list">
+      {pokemonList.slice(0,905)
         .filter((pokemon) => pokemon.name.includes(textoBusca.toLowerCase()) || String(pokemon.id) === textoBusca)
         .map((pokemon) => (<Card id={pokemon.id} key={pokemon.id} name={pokemon.name} types={pokemon.types}/>))}
-
-
+      </List> }
+      <List className="list">
+      {pokemonList.slice(0,151)
+        .map((pokemon) => (<Card id={pokemon.id} key={pokemon.id} name={pokemon.name} types={pokemon.types}/>))}
       </List>
+
       </>
       )
 
