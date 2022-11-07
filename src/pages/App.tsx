@@ -18,22 +18,33 @@ h1 {
 }
 span{
   color: ${(props) => props.theme.title}
+
 }
 
 a{
   color: ${(props) => props.theme.title}
+}
+
+input{
+  background-color: ${(props) => props.theme.inputbg};
+  color: ${(props) => props.theme.inputcol};
+  border: 2px solid ${(props) => props.theme.inputborder};
 }
 `
 
 const darkTheme = {
   body: "#343333",
   title: "#ffffff",
-  image: "url(Pokeballdark.png)"
+  image: "url(Pokeballdark.png)",
+  inputbg:"#9e9e9e",
+  inputcol:"#000000",
+  inputborder:"#9e9e9e"
 }
 
 const lightTheme = {
   body: "#fff",
-  image: "url(Pokeball.png)"
+  image: "url(Pokeball.png)",
+  inputborder:"#9e9e9e"
 
 }
 
