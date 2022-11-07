@@ -1,6 +1,6 @@
 import Card, {CardProps} from "../components/Card"
 import NavBar from "../components/NavBar"
-import { Title, List, Input } from './Home.style'
+import { Title, List, Input} from './Home.style'
 import { useEffect, useState } from "react";
 import api from "../services/api";
 
@@ -59,7 +59,8 @@ function Home() {
 
 
       </List>
-      </>)
+      </>
+      )
 
   }
 

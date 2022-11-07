@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+
+
 export const Title = styled.h1`
   font-weight: 700;
   font-size: 48px;
@@ -8,6 +10,7 @@ export const Title = styled.h1`
 
   max-width: 700px;
   margin: 160px 0;
+
 
   @media only screen and (max-width: 400px){
     font-size: 32px;

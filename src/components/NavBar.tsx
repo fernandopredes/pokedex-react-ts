@@ -2,7 +2,6 @@
 import { useSelector} from "react-redux"
 // import "./NavBar.css"
 import { Nav, BtnGoBack, TotalPok } from './NavBar.style'
-import rotomdex from '../assets/rotom.png'
 import { StoreState } from "../redux"
 
 type NavBarProps = {
