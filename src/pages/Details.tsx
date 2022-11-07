@@ -99,9 +99,9 @@ function Details(props: DetailsProps) {
 
             {!!listaPokemonsFavoritos.find(
               pokemonId => String(pokemonId) === String(id)) ?
-              (<Button onClick={handleClickRemove}>Remover dos favoritos</Button>)
+              (<Button className="button-39" onClick={handleClickRemove}>Remover dos favoritos</Button>)
                :
-               (<Button onClick={handleClickAdd}>Adicionar aos favoritos</Button>)
+               (<Button className="button-39" onClick={handleClickAdd}>Adicionar aos favoritos</Button>)
             }
 
           </Card>
