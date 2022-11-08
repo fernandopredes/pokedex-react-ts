@@ -1,6 +1,6 @@
 import Card, {CardProps} from "../components/Card"
 import NavBar from "../components/NavBar"
-import { Title, List, Input } from './Home.style'
+import { Title, List, Input, Ghost} from './Home.style'
 import { useEffect, useState } from "react";
 import api from "../services/api";
 
@@ -13,7 +13,7 @@ function Home() {
 
 
   async function getPokemon() {
-    const { data } = await  api.get('/pokemon?limit=251')
+    const { data } = await  api.get('/pokemon?limit=905')
 
 
     const dadosCompletos = await Promise.all(
@@ -41,6 +41,18 @@ function Home() {
 
   }, [])
 
+  let list
+  if (textoBusca === "") {
+    list = <p></p>
+  } else if(Number(textoBusca) > 905) {
+    list = <Ghost className="404" src="404.png" alt="Lavander Town Ghost" />
+  } else{
+    list = <List className="list">
+    {pokemonList.slice(0,905)
+      .filter((pokemon) => pokemon.name.includes(textoBusca.toLowerCase()) || String(pokemon.id) === textoBusca)
+      .map((pokemon) => (<Card id={pokemon.id} key={pokemon.id} name={pokemon.name} types={pokemon.types}/>))}
+    </List>
+  }
 
   if (isLoading) {
     return <p>Carregando...</p>
@@ -51,15 +63,19 @@ function Home() {
       <Title>Encontre todos os pokémons em um só lugar</Title>
 
       <Input type="text" placeholder="Procure por um pokémon ou dex number." value={textoBusca} onChange={(event)=>{setTextoBusca(event.target.value)}}/>
-      <List className="list">
 
-      {pokemonList
-        .filter((pokemon) => pokemon.name.includes(textoBusca.toLowerCase()) || String(pokemon.id) === textoBusca)
-        .map((pokemon) => (<Card id={pokemon.id} key={pokemon.id} name={pokemon.name} types={pokemon.types}/>))}
+      {list}
 
-
-      </List>
-      </>)
+      {textoBusca === "" ?
+        <List className="list">
+        {pokemonList.slice(0,151)
+          .map((pokemon) => (<Card id={pokemon.id} key={pokemon.id} name={pokemon.name} types={pokemon.types}/>))}
+        </List>
+      :
+        <p></p>
+      }
+      </>
+      )
 
   }
 

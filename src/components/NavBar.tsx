@@ -2,7 +2,6 @@
 import { useSelector} from "react-redux"
 // import "./NavBar.css"
 import { Nav, BtnGoBack, TotalPok } from './NavBar.style'
-import rotomdex from '../assets/rotom.png'
 import { StoreState } from "../redux"
 
 type NavBarProps = {
@@ -20,7 +19,7 @@ function NavBar(props: NavBarProps ) {
       <BtnGoBack to="/" className="brand">
         <h1>Pokedex</h1>
       </BtnGoBack>
-      <BtnGoBack className="favorites" to='/favorites'><TotalPok>Você tem {totalPokemons.length} pokemóns favoritos</TotalPok></BtnGoBack>
+      <BtnGoBack className="favorites" to='/favorites'><TotalPok>Você tem {totalPokemons.length} pokémons favoritos</TotalPok></BtnGoBack>
 
       {props.hasGoBack && (<BtnGoBack to="/" className="btn-goBack">Voltar</BtnGoBack>)}
     </Nav>

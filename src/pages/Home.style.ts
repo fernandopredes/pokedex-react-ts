@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+
+
 export const Title = styled.h1`
   font-weight: 700;
   font-size: 48px;
@@ -8,6 +10,7 @@ export const Title = styled.h1`
 
   max-width: 700px;
   margin: 160px 0;
+
 
   @media only screen and (max-width: 400px){
     font-size: 32px;
@@ -40,3 +43,8 @@ export const Input = styled.input`
   margin-bottom: 80px;
   border-radius: 15px;
 `;
+
+export const Ghost = styled.img`
+display: block;
+margin: 0 auto 30px auto ;
+`
