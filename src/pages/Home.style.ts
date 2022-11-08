@@ -43,3 +43,8 @@ export const Input = styled.input`
   margin-bottom: 80px;
   border-radius: 15px;
 `;
+
+export const Ghost = styled.img`
+display: block;
+margin: 0 auto 30px auto ;
+`

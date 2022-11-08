@@ -1,6 +1,6 @@
 import Card, {CardProps} from "../components/Card"
 import NavBar from "../components/NavBar"
-import { Title, List, Input} from './Home.style'
+import { Title, List, Input, Ghost} from './Home.style'
 import { useEffect, useState } from "react";
 import api from "../services/api";
 
@@ -41,6 +41,18 @@ function Home() {
 
   }, [])
 
+  let list
+  if (textoBusca === "") {
+    list = <p></p>
+  } else if(Number(textoBusca) > 905) {
+    list = <Ghost className="404" src="404.png" alt="Lavander Town Ghost" />
+  } else{
+    list = <List className="list">
+    {pokemonList.slice(0,905)
+      .filter((pokemon) => pokemon.name.includes(textoBusca.toLowerCase()) || String(pokemon.id) === textoBusca)
+      .map((pokemon) => (<Card id={pokemon.id} key={pokemon.id} name={pokemon.name} types={pokemon.types}/>))}
+    </List>
+  }
 
   if (isLoading) {
     return <p>Carregando...</p>
@@ -52,16 +64,16 @@ function Home() {
 
       <Input type="text" placeholder="Procure por um pokémon ou dex number." value={textoBusca} onChange={(event)=>{setTextoBusca(event.target.value)}}/>
 
-      {textoBusca === "" ?<p>teste</p> : <List className="list">
-      {pokemonList.slice(0,905)
-        .filter((pokemon) => pokemon.name.includes(textoBusca.toLowerCase()) || String(pokemon.id) === textoBusca)
-        .map((pokemon) => (<Card id={pokemon.id} key={pokemon.id} name={pokemon.name} types={pokemon.types}/>))}
-      </List> }
-      <List className="list">
-      {pokemonList.slice(0,151)
-        .map((pokemon) => (<Card id={pokemon.id} key={pokemon.id} name={pokemon.name} types={pokemon.types}/>))}
-      </List>
+      {list}
 
+      {textoBusca === "" ?
+        <List className="list">
+        {pokemonList.slice(0,151)
+          .map((pokemon) => (<Card id={pokemon.id} key={pokemon.id} name={pokemon.name} types={pokemon.types}/>))}
+        </List>
+      :
+        <p></p>
+      }
       </>
       )
 
