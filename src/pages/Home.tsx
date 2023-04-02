@@ -44,11 +44,11 @@ function Home() {
   let list
   if (textoBusca === "") {
     list = <p></p>
-  } else if(Number(textoBusca) > 905) {
+  } else if(Number(textoBusca) > 1010) {
     list = <Ghost className="404" src="404.png" alt="Lavander Town Ghost" />
   } else{
     list = <List className="list">
-    {pokemonList.slice(0,905)
+    {pokemonList.slice(0,1010)
       .filter((pokemon) => pokemon.name.includes(textoBusca.toLowerCase()) || String(pokemon.id) === textoBusca)
       .map((pokemon) => (<Card id={pokemon.id} key={pokemon.id} name={pokemon.name} types={pokemon.types}/>))}
     </List>
